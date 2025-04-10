@@ -30,12 +30,18 @@ jobs:
     - name: List build directory contents
       run: |
         cd src
-        Get-ChildItem -Path build -Recurse
+        Get-ChildItem -Path build -Recurse | Select-Object FullName
     
     - name: Create ZIP archive
       run: |
         cd src/build
         Compress-Archive -Path busylight.dist/* -DestinationPath BusyLight-Windows.zip
+        
+    - name: Upload executable
+      uses: actions/upload-artifact@v4
+      with:
+        name: BusyLight-Windows-Executable
+        path: src/build/busylight.dist/busylight.exe
         
     - name: Upload complete package
       uses: actions/upload-artifact@v4
