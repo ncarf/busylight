@@ -27,16 +27,15 @@ jobs:
         cd src
         python -m nuitka --standalone --windows-console-mode=disable --include-package=tkinter --windows-icon-from-ico=busylight.ico --output-dir=build --assume-yes-for-downloads --enable-plugin=tk-inter busylight.py
     
+    - name: List build directory contents
+      run: |
+        cd src/build
+        dir /s
+    
     - name: Create ZIP archive
       run: |
         cd src/build
         Compress-Archive -Path busylight.dist/* -DestinationPath BusyLight-Windows.zip
-    
-    - name: Upload executable
-      uses: actions/upload-artifact@v4
-      with:
-        name: BusyLight-Windows-Executable
-        path: src/build/busylight.exe
         
     - name: Upload complete package
       uses: actions/upload-artifact@v4
