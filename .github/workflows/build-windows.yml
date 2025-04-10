@@ -1,0 +1,45 @@
+name: Build Windows Executable
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:  # Allows manual triggering
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install nuitka
+    
+    - name: Build with Nuitka
+      run: |
+        cd src
+        python -m nuitka --standalone --windows-disable-console --include-package=tkinter --windows-icon-from-ico=busylight.ico --output-dir=build busylight.py
+    
+    - name: Create ZIP archive
+      run: |
+        cd src/build
+        Compress-Archive -Path BusyLight.dist/* -DestinationPath BusyLight-Windows.zip
+    
+    - name: Upload executable
+      uses: actions/upload-artifact@v3
+      with:
+        name: BusyLight-Windows-Executable
+        path: src/build/BusyLight.exe
+        
+    - name: Upload complete package
+      uses: actions/upload-artifact@v3
+      with:
+        name: BusyLight-Windows-Package
+        path: src/build/BusyLight-Windows.zip
