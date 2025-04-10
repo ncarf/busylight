@@ -30,13 +30,13 @@ jobs:
     - name: Create ZIP archive
       run: |
         cd src/build
-        Compress-Archive -Path BusyLight.dist/* -DestinationPath BusyLight-Windows.zip
+        Compress-Archive -Path busylight.dist/* -DestinationPath BusyLight-Windows.zip
     
     - name: Upload executable
       uses: actions/upload-artifact@v4
       with:
         name: BusyLight-Windows-Executable
-        path: src/build/BusyLight.exe
+        path: src/build/busylight.exe
         
     - name: Upload complete package
       uses: actions/upload-artifact@v4
