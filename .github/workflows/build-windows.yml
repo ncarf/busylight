@@ -25,7 +25,7 @@ jobs:
     - name: Build with Nuitka
       run: |
         cd src
-        python -m nuitka --standalone --windows-disable-console --include-package=tkinter --windows-icon-from-ico=busylight.ico --output-dir=build busylight.py
+        python -m nuitka --standalone --windows-console-mode=disable --include-package=tkinter --windows-icon-from-ico=busylight.ico --output-dir=build --assume-yes-for-downloads --enable-plugin=tk-inter busylight.py
     
     - name: Create ZIP archive
       run: |
