@@ -29,8 +29,8 @@ jobs:
     
     - name: List build directory contents
       run: |
-        cd src/build
-        dir /s
+        cd src
+        Get-ChildItem -Path build -Recurse
     
     - name: Create ZIP archive
       run: |
