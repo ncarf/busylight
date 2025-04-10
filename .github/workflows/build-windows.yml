@@ -10,10 +10,10 @@ jobs:
     runs-on: windows-latest
     
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: '3.10'
     
@@ -33,13 +33,13 @@ jobs:
         Compress-Archive -Path BusyLight.dist/* -DestinationPath BusyLight-Windows.zip
     
     - name: Upload executable
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: BusyLight-Windows-Executable
         path: src/build/BusyLight.exe
         
     - name: Upload complete package
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: BusyLight-Windows-Package
         path: src/build/BusyLight-Windows.zip
