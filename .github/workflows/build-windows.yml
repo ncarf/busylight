@@ -3,7 +3,7 @@ name: Build Windows Executable
 on:
   push:
     branches: [ main ]
-  workflow_dispatch:  # Allows manual triggering
+  workflow_dispatch:  # allows manual triggering
 
 jobs:
   build-windows:
@@ -21,11 +21,12 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install nuitka
+        pip install -r requirements.txt
     
     - name: Build with Nuitka
       run: |
         cd src
-        python -m nuitka --standalone --windows-console-mode=disable --include-package=tkinter --windows-icon-from-ico=busylight.ico --output-dir=build --assume-yes-for-downloads --enable-plugin=tk-inter busylight.py
+        python -m nuitka --standalone --windows-console-mode=disable --include-package=tkinter --include-package=PIL --include-package=pystray --windows-icon-from-ico=../assets/busylight.ico --output-dir=build --output-filename=busylight.exe --assume-yes-for-downloads --enable-plugin=tk-inter main.py
     
     - name: List build directory contents
       run: |
@@ -35,16 +36,16 @@ jobs:
     - name: Create ZIP archive
       run: |
         cd src/build
-        Compress-Archive -Path busylight.dist/* -DestinationPath BusyLight-Windows.zip
+        Compress-Archive -Path main.dist/* -DestinationPath busylight.zip
         
     - name: Upload executable
       uses: actions/upload-artifact@v4
       with:
-        name: BusyLight-Windows-Executable
-        path: src/build/busylight.dist/busylight.exe
+        name: busylight-executable
+        path: src/build/main.dist/busylight.exe
         
     - name: Upload complete package
       uses: actions/upload-artifact@v4
       with:
-        name: BusyLight-Windows-Package
-        path: src/build/BusyLight-Windows.zip
+        name: busylight-package
+        path: src/build/busylight.zip

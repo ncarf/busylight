@@ -8,23 +8,48 @@ A simple desktop application that shows availability status with a color-coded i
 - Draggable interface
 - Always stays on top of other windows
 - Resizable
+- Remembers position, size and status
+- Language switching (Spanish/English)
+- System tray integration (when available)
 
 ## For Users
 
 ### Windows Installation
 
-1. Download the latest `BusyLight-Windows.zip` from the releases section
+1. Download the latest `busylight.zip` from the releases section
 2. Extract the ZIP file to any location on your computer
-3. Run `BusyLight.exe` from the extracted folder
+3. Run `busylight.exe` from the extracted folder
 4. If Windows SmartScreen shows a warning, click "More info" and then "Run anyway"
 
 ### Usage
 
-- Click on the indicator to toggle between "Available" and "Busy" status
-- Click and drag to move the window
-- Resize the window as needed
+- Left-click to toggle between "Available" and "Busy" status
+- Left-click and drag to move the window
+- Right-click and drag to resize the window
+- Middle-click or press Escape to:
+  - Minimize to system tray (when system tray is available)
+  - Close the application (when system tray is not available)
+- Right-click on the system tray icon for additional options (if available)
+  - Show: Restore the window if minimized
+  - Toggle Status: Switch between Available/Busy
+  - Language: Change between Spanish and English
+  - Exit: Close the application
 
 ## For Developers
+
+### Project Structure
+
+```
+busylight-desktop/
+├── .github/workflows/ - CI/CD workflows
+├── assets/ - Images and icons
+├── build/ - Build configuration
+├── src/ - Source code
+│   ├── busylight_controller.py - Business logic
+│   ├── busylight_ui.py - User interface
+│   └── main.py - Application entry point
+└── README.md - Documentation
+```
 
 ### Building from Source
 
@@ -34,13 +59,18 @@ This application is built using Python and Tkinter. The Windows executable is cr
 
 - Python 3.8 or higher
 - Tkinter (usually included with Python)
+- Required packages: `pip install -r requirements.txt`
 
 #### Local Development
 
 1. Clone the repository
-2. Run the application:
+2. Install dependencies:
    ```
-   python src/busylight.py
+   pip install -r requirements.txt
+   ```
+3. Run the application:
+   ```
+   python src/main.py
    ```
 
 #### Building Windows Executable

@@ -1,18 +1,47 @@
 # Python
 __pycache__/
-*.pyc
-*.pyo
-*.pyd
-*.db
-*.sqlite3
-.venv*/
-
-# PyInstaller
-dist/
+*.py[cod]
+*$py.class
+*.so
+.Python
 build/
-*.spec
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+.venv_busylight/
+
+# Build artifacts
+src/build/
+src/dist/
+src/output/
+
+# Settings
+src/busylight_settings.json
 
 # IDE
-.vscode/
-.cursor/
 .idea/
+.vscode/
+*.swp
+*.swo
+
+# OS specific
+.DS_Store
+Thumbs.db

@@ -1,0 +1,6 @@
+pystray>=0.19.4
+pillow>=9.0.0
+# For Linux system tray support
+python-xlib>=0.31; sys_platform == 'linux'
+# For Windows system tray support
+pywin32>=305; sys_platform == 'win32'
