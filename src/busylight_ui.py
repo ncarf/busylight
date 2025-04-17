@@ -58,22 +58,8 @@ class BusyLightUI(tk.Tk):
         self.configure(bg="#FFFFFF")
 
         if IS_WINDOWS:
-            try:
-                import ctypes
-                from ctypes import windll
-
-                hwnd = windll.user32.GetParent(self.winfo_id())
-                style = windll.dwmapi.DwmSetWindowAttribute
-                DWMWA_WINDOW_CORNER_PREFERENCE = 33
-                DWM_WINDOW_CORNER_PREFERENCE = 2  # rounded
-                style(
-                    hwnd,
-                    DWMWA_WINDOW_CORNER_PREFERENCE,
-                    ctypes.byref(ctypes.c_int(DWM_WINDOW_CORNER_PREFERENCE)),
-                    ctypes.sizeof(ctypes.c_int),
-                )
-            except Exception as e:
-                logger.warning(f"failed to set rounded corners: {e}")
+            # initial attempt to set rounded corners
+            self.set_rounded_corners()
 
         width, height = map(int, settings["size"].split("x"))
 
@@ -178,6 +164,9 @@ class BusyLightUI(tk.Tk):
         if hasattr(self, "last_width") and hasattr(self, "last_height"):
             if self.last_width != event.width or self.last_height != event.height:
                 self.resize_font(event)
+                if IS_WINDOWS:
+                    # reapply rounded corners after resize
+                    self.set_rounded_corners()
 
         self.controller.update_window_position(self.winfo_x(), self.winfo_y())
 
@@ -388,3 +377,55 @@ class BusyLightUI(tk.Tk):
         else:
             self.quit_app()
         return "break"
+        
+    def set_rounded_corners(self):
+        """Apply rounded corners on Windows with fallback methods"""
+        if not IS_WINDOWS:
+            return
+            
+        try:
+            import ctypes
+            from ctypes import windll
+            
+            # get window handle
+            hwnd = windll.user32.GetParent(self.winfo_id())
+            
+            # try windows 11 / newer windows 10 method first
+            try:
+                style = windll.dwmapi.DwmSetWindowAttribute
+                DWMWA_WINDOW_CORNER_PREFERENCE = 33
+                DWM_WINDOW_CORNER_PREFERENCE = 2  # rounded
+                result = style(
+                    hwnd,
+                    DWMWA_WINDOW_CORNER_PREFERENCE,
+                    ctypes.byref(ctypes.c_int(DWM_WINDOW_CORNER_PREFERENCE)),
+                    ctypes.sizeof(ctypes.c_int),
+                )
+                if result == 0:  # S_OK
+                    logger.info("Applied rounded corners using DwmSetWindowAttribute")
+                    return
+                else:
+                    logger.warning(f"DwmSetWindowAttribute failed with code: {result}")
+            except Exception as e:
+                logger.warning(f"Modern rounded corners method failed: {e}")
+                
+            # fallback method for older windows versions
+            try:
+                # create rounded region
+                rgnw = self.winfo_width()
+                rgnh = self.winfo_height()
+                radius = 15
+                
+                region = windll.gdi32.CreateRoundRectRgn(0, 0, rgnw+1, rgnh+1, radius, radius)
+                result = windll.user32.SetWindowRgn(hwnd, region, True)
+                
+                if result:
+                    logger.info("Applied rounded corners using SetWindowRgn")
+                    return
+                else:
+                    logger.warning("SetWindowRgn failed")
+            except Exception as e:
+                logger.warning(f"Fallback rounded corners method failed: {e}")
+                
+        except Exception as e:
+            logger.warning(f"Failed to set rounded corners: {e}")
