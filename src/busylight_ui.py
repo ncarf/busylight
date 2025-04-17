@@ -105,7 +105,7 @@ class BusyLightUI(tk.Tk):
 
     def bind_common_events(self):
         """Bind events common to all platforms"""
-        # Movement and resizing
+        # movement and resizing
         self.label.bind("<Button-1>", self.start_move)
         self.label.bind("<B1-Motion>", self.on_move)
         self.label.bind("<ButtonRelease-1>", self.toggle_status)
@@ -113,17 +113,19 @@ class BusyLightUI(tk.Tk):
         self.label.bind("<B3-Motion>", self.on_resize)
         self.bind("<Configure>", self.on_configure)
 
+        # add both Button-2 and Button-4 for middle click (works better across platforms)
+        self.label.bind("<Button-2>", self._handle_middle_click)
+        self.label.bind("<Button-4>", self._handle_middle_click)
+
     def setup_window_controls(self, has_tray):
         """Setup window controls based on tray availability"""
         self.has_tray = has_tray
 
         if has_tray:
-            self.label.bind("<Button-2>", self.minimize_to_tray)
             self.bind("<Escape>", self.minimize_to_tray)
             self.protocol("WM_DELETE_WINDOW", self.minimize_to_tray)
             logger.info("Window controls set for system tray mode")
         else:
-            self.label.bind("<Button-2>", self.quit_app)
             self.bind("<Escape>", self.quit_app)
             self.protocol("WM_DELETE_WINDOW", self.quit_app)
             logger.info("Window controls set for standalone mode")
@@ -378,3 +380,11 @@ class BusyLightUI(tk.Tk):
         finally:
             self.destroy()
             sys.exit()
+
+    def _handle_middle_click(self, event):
+        """Handle middle click based on tray availability"""
+        if self.has_tray:
+            self.minimize_to_tray()
+        else:
+            self.quit_app()
+        return "break"

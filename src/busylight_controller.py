@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)
 class BusyLightController:
     """Handles business logic"""
 
-    # Language dictionaries
+    # language dictionaries
     LANGUAGES = {
         "es": {
             "available_text": "DISPONIBLE",
@@ -30,12 +30,12 @@ class BusyLightController:
 
     def __init__(self):
         """Init controller"""
-        # Default settings in memory
+        # default settings in memory
         self.settings = {
             "size": "300x80",
             "position": "+100+100",
             "is_available": True,
-            "language": "es",  # Spanish by default
+            "language": "es",  # spanish by default
             "use_tray": True,
         }
 

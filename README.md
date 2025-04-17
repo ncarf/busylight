@@ -72,12 +72,3 @@ This application is built using Python and Tkinter. The Windows executable is cr
    ```
    python src/main.py
    ```
-
-#### Building Windows Executable
-
-The Windows executable is automatically built using GitHub Actions. To trigger a build:
-
-1. Push to the main branch, or
-2. Go to the Actions tab in GitHub and manually trigger the "Build Windows Executable" workflow
-
-The built executable will be available as an artifact from the workflow run.
