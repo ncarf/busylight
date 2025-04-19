@@ -16,15 +16,15 @@ class BusyLightController:
 
     # language dictionaries
     LANGUAGES = {
-        "es": {
-            "available_text": "DISPONIBLE",
-            "busy_text": "OCUPADO",
-            "language_name": "Español",
-        },
         "en": {
             "available_text": "AVAILABLE",
             "busy_text": "BUSY",
             "language_name": "English",
+        },
+        "es": {
+            "available_text": "DISPONIBLE",
+            "busy_text": "OCUPADO",
+            "language_name": "Español",
         },
     }
 
@@ -35,7 +35,7 @@ class BusyLightController:
             "size": "300x80",
             "position": "+100+100",
             "is_available": True,
-            "language": "es",  # spanish by default
+            "language": "en",  # spanish by default
             "use_tray": True,
         }
 

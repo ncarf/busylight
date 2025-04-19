@@ -377,20 +377,20 @@ class BusyLightUI(tk.Tk):
         else:
             self.quit_app()
         return "break"
-        
+
     def set_rounded_corners(self):
         """Apply rounded corners on Windows with fallback methods"""
         if not IS_WINDOWS:
             return
-            
+
         try:
             import ctypes
             from ctypes import windll
-            
+
             # get window handle
             hwnd = windll.user32.GetParent(self.winfo_id())
-            
-            # try windows 11 / newer windows 10 method first
+
+            # windows 11 method
             try:
                 style = windll.dwmapi.DwmSetWindowAttribute
                 DWMWA_WINDOW_CORNER_PREFERENCE = 33
@@ -408,17 +408,19 @@ class BusyLightUI(tk.Tk):
                     logger.warning(f"DwmSetWindowAttribute failed with code: {result}")
             except Exception as e:
                 logger.warning(f"Modern rounded corners method failed: {e}")
-                
+
             # fallback method for older windows versions
             try:
                 # create rounded region
                 rgnw = self.winfo_width()
                 rgnh = self.winfo_height()
                 radius = 25
-                
-                region = windll.gdi32.CreateRoundRectRgn(0, 0, rgnw+1, rgnh+1, radius, radius)
+
+                region = windll.gdi32.CreateRoundRectRgn(
+                    0, 0, rgnw + 1, rgnh + 1, radius, radius
+                )
                 result = windll.user32.SetWindowRgn(hwnd, region, True)
-                
+
                 if result:
                     logger.info("Applied rounded corners using SetWindowRgn")
                     return
@@ -426,6 +428,6 @@ class BusyLightUI(tk.Tk):
                     logger.warning("SetWindowRgn failed")
             except Exception as e:
                 logger.warning(f"Fallback rounded corners method failed: {e}")
-                
+
         except Exception as e:
             logger.warning(f"Failed to set rounded corners: {e}")
