@@ -1,8 +1,10 @@
-# BusyLight
+# BusyLight 🚦🚫
 
 **Are you tired of being interrupted when you're in the zone?** 🧠💻
 
 BusyLight is your digital "Do Not Disturb" sign for the modern workspace! With a simple, colorful indicator that sits on your screen, colleagues can instantly see if you're available for a chat or deep in concentration.
+
+<img src="assets/busylight.gif" alt="BusyLight in action" width="700">
 
 ## Why You Need BusyLight ✨
 
@@ -38,11 +40,11 @@ BusyLight is your digital "Do Not Disturb" sign for the modern workspace! With a
 
 ## What Users Are Saying
 
-*"My coworker used to tap my shoulder every 5 minutes. Now he just stares at my BusyLight instead!"* - Finally Getting Work Done
-
-*"I set it to 'Busy' during video calls. My cat still interrupts me, but at least my colleagues don't!"* - Work From Home Champion
+*"I set it to 'Busy' during video calls. My cat still interrupts me, but at least my colleagues don't"* - Work From Home Champion
 
 *"This little app saved my marriage. My spouse now knows when not to ask me if I've seen their keys."* - Happily Focused
+
+*"My coworker used to tap my shoulder every 5 minutes. Now he just stares at my BusyLight instead!"* - Finally Getting Work Done
 
 *"I used to wear noise-cancelling headphones even when not listening to music. Now I just point at my screen and mouth 'BusyLight says no'."* - Productivity Ninja
 
