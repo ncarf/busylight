@@ -301,7 +301,7 @@ class BusyLightUI(tk.Tk):
             img = Image.new("RGBA", (64, 64), color=(0, 0, 0, 0))
             draw = ImageDraw.Draw(img)
 
-            color = self._get_status_color()
+            color = BUSY_COLOR
             if color.startswith("#"):
                 color = tuple(int(color[i : i + 2], 16) for i in (1, 3, 5))
 
