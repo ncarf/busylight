@@ -1,4 +1,4 @@
-# BusyLight Desktop
+# BusyLight
 
 **Are you tired of being interrupted when you're in the zone?** 🧠💻
 
