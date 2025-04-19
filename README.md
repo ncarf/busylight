@@ -2,7 +2,7 @@
 
 **Are you tired of being interrupted when you're in the zone?** 🧠💻
 
-BusyLight Desktop is your digital "Do Not Disturb" sign for the modern workspace! With a simple, colorful indicator that sits on your screen, colleagues can instantly see if you're available for a chat or deep in concentration.
+BusyLight is your digital "Do Not Disturb" sign for the modern workspace! With a simple, colorful indicator that sits on your screen, colleagues can instantly see if you're available for a chat or deep in concentration.
 
 ## Why You Need BusyLight ✨
 
