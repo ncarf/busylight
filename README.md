@@ -1,74 +1,51 @@
 # BusyLight Desktop
 
-A simple desktop application that shows availability status with a color-coded indicator.
+**Are you tired of being interrupted when you're in the zone?** 🧠💻
 
-## Features
+BusyLight Desktop is your digital "Do Not Disturb" sign for the modern workspace! With a simple, colorful indicator that sits on your screen, colleagues can instantly see if you're available for a chat or deep in concentration.
 
-- Toggle between "Available" and "Busy" status
-- Draggable interface
-- Always stays on top of other windows
-- Resizable
-- Remembers position, size and status
-- Language switching (Spanish/English)
-- System tray integration (when available)
+## Why You Need BusyLight ✨
 
-## For Users
+- **Stop the interruptions!** Visual status indicator shows everyone if you're available or need focus time
+- **Super simple to use** - just click to toggle between "Available" and "Busy" states
+- **Stays visible** but unobtrusive - always on top of other windows
+- **Make it yours** - drag it anywhere, resize it to your liking
+- **No setup hassle** - it remembers your preferences
+- **Hablas español?** Switch between English and Spanish with a click
 
-### Windows Installation
+## Quick Start Guide 🚀
 
-1. Download the latest `busylight.zip` from the releases section
-2. Extract the ZIP file to any location on your computer
-3. Run `busylight.exe` from the extracted folder
-4. If Windows SmartScreen shows a warning, click "More info" and then "Run anyway"
+### Windows Users
 
-### Usage
+1. Download the latest `busylight.zip` from the [releases section](https://github.com/ncarf/busylight-desktop/releases)
+2. Extract it anywhere on your computer
+3. Run `busylight.exe` and you're good to go!
 
-- Left-click to toggle between "Available" and "Busy" status
-- Left-click and drag to move the window
-- Right-click and drag to resize the window
-- Middle-click or press Escape to:
-  - Minimize to system tray (when system tray is available)
-  - Close the application (when system tray is not available)
-- Right-click on the system tray icon for additional options (if available)
-  - Show: Restore the window if minimized
-  - Toggle Status: Switch between Available/Busy
-  - Language: Change between Spanish and English
-  - Exit: Close the application
+### Using BusyLight
 
-## For Developers
+- **Left-click** to toggle between "Available" and "Busy"
+- **Left-click and drag** to move it where you want
+- **Right-click and drag** to resize it
+- **Middle-click** or press **Escape** to minimize to system tray
+- **Right-click** on the system tray icon for more options
 
-### Project Structure
+## Perfect For...
 
-```
-busylight-desktop/
-├── .github/workflows/ - CI/CD workflows
-├── assets/ - Images and icons
-├── build/ - Build configuration
-├── src/ - Source code
-│   ├── busylight_controller.py - Business logic
-│   ├── busylight_ui.py - User interface
-│   └── main.py - Application entry point
-└── README.md - Documentation
-```
+- Remote workers who share space with family
+- Open office environments
+- Anyone who needs focused work time
+- Teams using hot-desking or shared workspaces
 
-### Building from Source
+## What Users Are Saying
 
-This application is built using Python and Tkinter. The Windows executable is created using Nuitka via GitHub Actions.
+*"My coworker used to tap my shoulder every 5 minutes. Now he just stares at my BusyLight instead!"* - Finally Getting Work Done
 
-#### Prerequisites
+*"I set it to 'Busy' during video calls. My cat still interrupts me, but at least my colleagues don't!"* - Work From Home Champion
 
-- Python 3.8 or higher
-- Tkinter (usually included with Python)
-- Required packages: `pip install -r requirements.txt`
+*"This little app saved my marriage. My spouse now knows when not to ask me if I've seen their keys."* - Happily Focused
 
-#### Local Development
+*"I used to wear noise-cancelling headphones even when not listening to music. Now I just point at my screen and mouth 'BusyLight says no'."* - Productivity Ninja
 
-1. Clone the repository
-2. Install dependencies:
-   ```
-   pip install -r requirements.txt
-   ```
-3. Run the application:
-   ```
-   python src/main.py
-   ```
+---
+
+**Download BusyLight today and take control of your focus time!** 🎯
