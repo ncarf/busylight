@@ -394,7 +394,7 @@ class BusyLightUI(tk.Tk):
             try:
                 style = windll.dwmapi.DwmSetWindowAttribute
                 DWMWA_WINDOW_CORNER_PREFERENCE = 33
-                DWM_WINDOW_CORNER_PREFERENCE = 2  # rounded
+                DWM_WINDOW_CORNER_PREFERENCE = 3  # rounded small
                 result = style(
                     hwnd,
                     DWMWA_WINDOW_CORNER_PREFERENCE,
@@ -414,7 +414,7 @@ class BusyLightUI(tk.Tk):
                 # create rounded region
                 rgnw = self.winfo_width()
                 rgnh = self.winfo_height()
-                radius = 15
+                radius = 25
                 
                 region = windll.gdi32.CreateRoundRectRgn(0, 0, rgnw+1, rgnh+1, radius, radius)
                 result = windll.user32.SetWindowRgn(hwnd, region, True)
