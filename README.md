@@ -4,7 +4,7 @@
 
 BusyLight is your digital "Do Not Disturb" sign for the modern workspace! With a simple, colorful indicator that sits on your screen, colleagues can instantly see if you're available for a chat or deep in concentration.
 
-<img src="assets/busylight.gif" alt="BusyLight in action" width="700">
+<img src="assets/busylight_small.gif" alt="BusyLight in action" width="700">
 
 ## Why You Need BusyLight ✨
 
