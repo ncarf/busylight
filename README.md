@@ -17,7 +17,7 @@ BusyLight is your digital "Do Not Disturb" sign for the modern workspace! With a
 
 ### Windows Users
 
-1. Download the latest `busylight.zip` from the [releases section](https://github.com/ncarf/busylight-desktop/releases)
+1. Download the latest `busylight.zip` from the [releases section](https://github.com/ncarf/busylight/releases)
 2. Extract it anywhere on your computer
 3. Run `busylight.exe` and you're good to go!
 
