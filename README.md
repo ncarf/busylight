@@ -1,53 +1,55 @@
-# BusyLight 🚦🚫
+# BusyLight
 
-**Are you tired of being interrupted when you're in the zone?** 🧠💻
-
-BusyLight is your digital "Do Not Disturb" sign for the modern workspace! With a simple, colorful indicator that sits on your screen, colleagues can instantly see if you're available for a chat or deep in concentration.
+A simple visual status indicator for your desktop. Shows colleagues when you're available or need focus time.
 
 <img src="assets/busylight_small.gif" alt="BusyLight in action" width="700">
 
-## Why You Need BusyLight ✨
+## What it does
 
-- **Stop the interruptions!** Visual status indicator shows everyone if you're available or need focus time
-- **Super simple to use** - just click to toggle between "Available" and "Busy" states
-- **Stays visible** but unobtrusive - always on top of other windows
-- **Make it yours** - drag it anywhere, resize it to your liking
-- **No setup hassle** - it remembers your preferences
-- **Hablas español?** Switch between English and Spanish with a click
+BusyLight displays a colored indicator on your screen that changes between "Available" (green) and "Busy" (red). It stays on top of other windows but remains unobtrusive, letting people around you know your availability at a glance.
 
-## Quick Start Guide 🚀
+## Features
 
-### Windows Users
+- Click to toggle between Available and Busy states
+- Drag to move anywhere on screen
+- Right-click and drag to resize
+- Minimize to system tray (middle-click or Escape)
+- Remembers position and size between sessions
+- English and Spanish language support
+- System tray icon changes color with status
 
-1. Download the latest `busylight.zip` from the [releases section](https://github.com/ncarf/busylight/releases)
-2. Extract it anywhere on your computer
-3. Run `busylight.exe` and you're good to go!
+## Installation
 
-### Using BusyLight
+### Windows
 
-- **Left-click** to toggle between "Available" and "Busy"
-- **Left-click and drag** to move it where you want
-- **Right-click and drag** to resize it
-- **Middle-click** or press **Escape** to minimize to system tray
-- **Right-click** on the system tray icon for more options
+1. Download `busylight.zip` from the [releases page](https://github.com/ncarf/busylight/releases)
+2. Extract anywhere on your computer
+3. Run `busylight.exe`
 
-## Perfect For...
+## Usage
 
-- Remote workers who share space with family
+- **Left-click**: Toggle status
+- **Left-click + drag**: Move window
+- **Right-click + drag**: Resize window
+- **Middle-click** or **Escape**: Minimize to tray
+- **Right-click tray icon**: Access menu options
+
+## Use cases
+
+- Remote work with shared spaces
 - Open office environments
-- Anyone who needs focused work time
-- Teams using hot-desking or shared workspaces
+- Video calls and meetings
+- Deep work sessions
+- Hot-desking setups
 
-## What Users Are Saying
+## Development
 
-*"I set it to 'Busy' during video calls. My cat still interrupts me, but at least my colleagues don't"* - Work From Home Champion
+Built with Python and Tkinter. Uses PyInstaller for Windows executable creation.
 
-*"This little app saved my marriage. My spouse now knows when not to ask me if I've seen their keys."* - Happily Focused
+```bash
+# Run from source
+python src/main.py
 
-*"My coworker used to tap my shoulder every 5 minutes. Now he just stares at my BusyLight instead!"* - Finally Getting Work Done
-
-*"I used to wear noise-cancelling headphones even when not listening to music. Now I just point at my screen and mouth 'BusyLight says no'."* - Productivity Ninja
-
----
-
-**Download BusyLight today and take control of your focus time!** 🎯
+# Build executable
+pyinstaller busylight.spec
+```
